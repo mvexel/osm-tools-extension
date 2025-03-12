@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "OSM Tools Quick Access",
+  "description": "A menu for quick access to OSM Tools",
+  "author": "Martijn van Exel",
+  "version": "1.0",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
