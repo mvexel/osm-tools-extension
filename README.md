@@ -7,11 +7,11 @@ This Chrome extension give you easy access to OSM tools based on the OSM map ext
 
 ## To install
 
-Right now, this is not an 'official' Chrome extension, you cannot download it from the Chrome Web Store. To install, clone this repo somewhere, open the Chrome extensions settings (Menu -> Extensions -> Manage Extensions or type `chrome://extensions/` in your browser), enable Developer Mode, select `Load Unpacked` and select the `chrome/` directory in the cloned repo.
+Right now, this is not an 'official' Chrome extension, you cannot download it from the Chrome Web Store. To install, clone this repo somewhere, open the Chrome extensions settings (`Menu -> Extensions -> Manage Extensions` or type `chrome://extensions/` in your browser), enable Developer Mode, select `Load Unpacked` and select the `chrome/` directory in the cloned repo.
 
 ## To contribute
 
-If there is a tool you would like to add to this list, open `[popup.js](chrome/popup.js)` and add a new entry in the `tools` object. You will find detailed instructions in the file.
+If there is a tool you would like to add to this list, open [`popup.js`](chrome/popup.js) and add a new entry in the `tools` object. You will find detailed instructions in the file.
 
 Please submit a pull request with your modified code and share your improvements with the community!
 
