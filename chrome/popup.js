@@ -33,8 +33,7 @@ function generateLinks(lat, lon, zoom) {
 
 chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
   const url = tabs[0].url;
-  const coordMatch = url.match(/mlat=([-0-9.]+)&mlon=([-0-9.]+)/) || 
-                    url.match(/map=([0-9]+)\/([-0-9.]+)\/([-0-9.]+)/);
+  const coordMatch = url.match(/#?map=([0-9.]+)\/([-0-9.]+)\/([-0-9.]+)/);
 
   if (coordMatch) {
     const [_, zoom, lat, lon] = coordMatch;
