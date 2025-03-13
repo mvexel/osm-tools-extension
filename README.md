@@ -13,9 +13,9 @@ Right now, this is not an 'official' Chrome extension, you cannot download it fr
 
 If there is a tool you would like to add to the default list, open [`defaults.js`](chrome/defaults.js) and add a new entry in the `defaultTools` object. You will find detailed instructions in the file.
 
-If that sounds too difficult, you can also open an issue and tell me what tool you would like to see included in the default list.
-
 Please submit a pull request with your modified code and share your improvements with the community!
+
+If that sounds too difficult, you can also open an issue and tell me what tool you would like to see included in the default list.
 
 ## Notes
 
