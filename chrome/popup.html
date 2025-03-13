@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <style>
         body {
             min-width: 200px;
-            padding: 0px;
+            padding: 0;
             font-family: Arial, sans-serif;
             font-size: 14px;
         }
@@ -24,7 +24,6 @@
         a {
             color: #1a73e8;
             text-decoration: none;
-            font-size: 14px;
             display: block;
             padding: 4px 0;
         }
@@ -32,17 +31,23 @@
         a:hover {
             text-decoration: underline;
         }
-        
+
         button {
             font-size: 14px;
+            padding: 4px 8px;
+        }
+
+        .settings-container {
+            text-align: center;
+            margin: 8px;
         }
     </style>
 </head>
 
 <body>
     <div id="content">Detecting coordinates...</div>
-    <div style="text-align: center; margin: 8px;">
-        <button id="settings-btn" style="padding: 4px 8px;">⚙️ Settings</button>
+    <div class="settings-container">
+        <button id="settings-btn">⚙️ Settings</button>
     </div>
     <script src="popup.js"></script>
 </body>
