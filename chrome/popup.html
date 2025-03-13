@@ -2,16 +2,19 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <style>
         body {
             min-width: 200px;
             padding: 0px;
             font-family: Arial, sans-serif;
+            font-size: 14px;
         }
 
         .tool-list {
             list-style: none;
             padding: 0;
+            margin: 10px;
         }
 
         .tool-item {
@@ -21,16 +24,26 @@
         a {
             color: #1a73e8;
             text-decoration: none;
+            font-size: 14px;
+            display: block;
+            padding: 4px 0;
         }
 
         a:hover {
             text-decoration: underline;
+        }
+        
+        button {
+            font-size: 14px;
         }
     </style>
 </head>
 
 <body>
     <div id="content">Detecting coordinates...</div>
+    <div style="text-align: center; margin: 8px;">
+        <button id="settings-btn" style="padding: 4px 8px;">⚙️ Settings</button>
+    </div>
     <script src="popup.js"></script>
 </body>
 

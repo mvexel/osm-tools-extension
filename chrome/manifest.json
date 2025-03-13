@@ -10,8 +10,14 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "storage"],
   "action": {
     "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "osm-tools-quick-access@osm.lol",
+      "strict_min_version": "109.0"
+    }
   }
 }
