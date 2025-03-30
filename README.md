@@ -7,10 +7,19 @@ This Chrome extension give you easy access to OSM tools based on the OSM map ext
 
 ## To install
 
-Right now, this is not an 'official' Chrome extension, you cannot download it from the Chrome Web Store. To install, clone this repo somewhere, open the Chrome extensions settings (`Menu -> Extensions -> Manage Extensions` or type `chrome://extensions/` in your browser), enable Developer Mode, select `Load Unpacked` and select the `chrome/` directory in the cloned repo.
+### Chrome
+Right now, this is not an 'official' Chrome extension, you cannot download it from the Chrome Web Store. 
+
+#### Temporary Install
+To install, clone this repo somewhere, open the Chrome extensions settings (`Menu -> Extensions -> Manage Extensions` or type `chrome://extensions/` in your browser), enable Developer Mode, select `Load Unpacked` and select the `chrome/` directory in the cloned repo.
+
+### Firefox
+You can find this extension in the [Firefox Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/osm-tools-quick-access/). (If this link does not work, the extension is probably under review).
+
+#### Temporary Install
+Right now, this is not an 'official' Firefox extension, you cannot download it from the Firefox Add-ons Store. To install, clone this repo somewhere, open the Firefox extensions settings (`Menu -> Add-ons -> Manage Extensions` or type `about:debugging` in your browser), enable Developer Mode, select `Load Temporary Add-on` and select the `firefox/` directory in the cloned repo.
 
 ## To contribute
-
 If there is a tool you would like to add to the default list, open [`defaults.js`](chrome/defaults.js) and add a new entry in the `defaultTools` object. You will find detailed instructions in the file.
 
 Please submit a pull request with your modified code and share your improvements with the community!
