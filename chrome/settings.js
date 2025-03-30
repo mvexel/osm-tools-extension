@@ -14,6 +14,23 @@ function renderTools(tools, order) {
     const list = document.getElementById('tools-list');
     list.innerHTML = '';
 
+    // Create section headers
+    const coordinateHeader = document.createElement('h3');
+    coordinateHeader.textContent = 'Coordinate-based Tools';
+    list.appendChild(coordinateHeader);
+
+    const coordinateList = document.createElement('div');
+    coordinateList.className = 'tool-section';
+    list.appendChild(coordinateList);
+
+    const changesetHeader = document.createElement('h3');
+    changesetHeader.textContent = 'Changeset Tools';
+    list.appendChild(changesetHeader);
+
+    const changesetList = document.createElement('div');
+    changesetList.className = 'tool-section';
+    list.appendChild(changesetList);
+
     order.forEach(name => {
         const toolDiv = document.createElement('div');
         toolDiv.className = 'tool-item';
@@ -24,18 +41,26 @@ function renderTools(tools, order) {
         const isEnabled = tool ? 
             (typeof tool === 'object' ? tool.enabled !== false : true) : 
             false;
+        
+        const toolType = tool && typeof tool === 'object' && tool.type ? tool.type : 'coordinate';
 
         toolDiv.innerHTML = `
             <label>
                 <input type="checkbox" ${isEnabled ? 'checked' : ''}>
                 ${name}
             </label>
+            <span class="tool-type">${toolType}</span>
         `;
 
         // Add event listeners
         setupToolItemEvents(toolDiv, name, tools, order);
 
-        list.appendChild(toolDiv);
+        // Add to the appropriate section
+        if (toolType === 'changeset') {
+            changesetList.appendChild(toolDiv);
+        } else {
+            coordinateList.appendChild(toolDiv);
+        }
     });
 }
 
@@ -163,15 +188,25 @@ function saveSettings(showAlert = true) {
 function addNewTool() {
     const name = document.getElementById('tool-name').value.trim();
     const url = document.getElementById('tool-url').value.trim();
+    const toolType = document.getElementById('tool-type').value;
 
-    if (name && url && url.includes('{zoom}') && url.includes('{lat}') && url.includes('{lon}')) {
+    let isValid = false;
+    
+    if (toolType === 'coordinate') {
+        isValid = name && url && url.includes('{zoom}') && url.includes('{lat}') && url.includes('{lon}');
+    } else if (toolType === 'changeset') {
+        isValid = name && url && url.includes('{changesetId}');
+    }
+
+    if (isValid) {
         chrome.storage.sync.get(['tools', 'order'], (result) => {
             const tools = result.tools || defaultTools;
             const order = result.order || Object.keys(tools);
 
             tools[name] = {
                 url: url,
-                enabled: true
+                enabled: true,
+                type: toolType
             };
 
             if (!order.includes(name)) {
@@ -186,7 +221,11 @@ function addNewTool() {
             });
         });
     } else {
-        alert('Please enter a valid tool name and URL with {zoom}, {lat}, and {lon} placeholders');
+        if (toolType === 'coordinate') {
+            alert('Please enter a valid tool name and URL with {zoom}, {lat}, and {lon} placeholders');
+        } else {
+            alert('Please enter a valid tool name and URL with {changesetId} placeholder');
+        }
     }
 }
 

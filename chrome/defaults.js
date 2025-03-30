@@ -23,44 +23,82 @@
 */
 
 const defaultTools = {
+    // Coordinate-based tools
     'Rapid Editor': {
         url: 'https://rapideditor.org/edit#map={zoom}/{lat}/{lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'OSM Inspector': {
         url: 'https://tools.geofabrik.de/osmi/?view=geometry&lon={lon}&lat={lat}&zoom={zoom}&baselayer=Geofabrik%20Standard',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'MapCompare': {
         url: 'https://mc.bbbike.org/mc/?zoom={zoom}&lat={lat}&lon={lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'New uMap here': {
         url: 'https://umap.openstreetmap.fr/en/map/new/#{zoom}/{lat}/{lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'Americana Map': {
         url: 'https://americanamap.org/#map={zoom}/{lat}/{lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'OpenTrailMap': {
         url: 'https://opentrailmap.us/#map={zoom}/{lat}/{lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'OpenSkiMap': {
         url: 'https://openskimap.org/#{zoom}/{lat}/{lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'OpenWhateverMap': {
         url: 'https://openwhatevermap.xyz/#{zoom}/{lat}/{lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'OpenStreetBrowser': {
         url: 'https://openstreetbrowser.org/#map={zoom}/{lat}/{lon}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
     },
     'Mapillary': {
         url: 'https://www.mapillary.com/app/?lat={lat}&lng={lon}&z={zoom}',
-        enabled: true
+        enabled: true,
+        type: 'coordinate'
+    },
+    
+    // Changeset inspection tools
+    'OSMCha': {
+        url: 'https://osmcha.org/changesets/{changesetId}',
+        enabled: true,
+        type: 'changeset'
+    },
+    'OSM Changeset Viewer': {
+        url: 'https://osmlab.github.io/changeset-map/#{changesetId}',
+        enabled: true,
+        type: 'changeset'
+    },
+    'Achavi': {
+        url: 'https://overpass-api.de/achavi/?changeset={changesetId}',
+        enabled: true,
+        type: 'changeset'
+    },
+    'OSM History Tab': {
+        url: 'https://osmhv.openstreetmap.de/changeset.jsp?id={changesetId}',
+        enabled: true,
+        type: 'changeset'
+    },
+    'Changeset By Comparison': {
+        url: 'https://resultmaps.neis-one.org/osm-change-viz?c={changesetId}',
+        enabled: true,
+        type: 'changeset'
     }
 };

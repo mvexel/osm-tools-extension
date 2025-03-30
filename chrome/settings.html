@@ -32,6 +32,9 @@
             background-color: #f5f5f5;
             border-radius: 4px;
             cursor: move;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .tool-item:hover {
@@ -40,6 +43,18 @@
 
         .tool-item label {
             font-size: 14px;
+        }
+        
+        .tool-type {
+            font-size: 12px;
+            color: #666;
+            background-color: #e0e0e0;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        
+        .tool-section {
+            margin-bottom: 20px;
         }
 
         .add-tool {
@@ -92,12 +107,25 @@
     <div class="add-tool">
         <h2>Add New Tool</h2>
         <input type="text" id="tool-name" placeholder="Tool Name">
-        <input type="text" id="tool-url" placeholder="URL with {zoom}, {lat}, {lon} placeholders">
-        <button id="add-tool-btn">Add Tool</button>
-        <div class="instructions">
-            <p><strong>URL Format:</strong> Use {zoom}, {lat}, and {lon} as placeholders in the URL.</p>
-            <p><strong>Example:</strong> https://example.org/#map={zoom}/{lat}/{lon}</p>
+        <select id="tool-type" style="width: 100%; padding: 8px; margin: 4px 0; box-sizing: border-box;">
+            <option value="coordinate">Coordinate Tool</option>
+            <option value="changeset">Changeset Tool</option>
+        </select>
+        <div id="coordinate-placeholder" style="display: block;">
+            <input type="text" id="tool-url" placeholder="URL with {zoom}, {lat}, {lon} placeholders">
+            <div class="instructions">
+                <p><strong>URL Format:</strong> Use {zoom}, {lat}, and {lon} as placeholders in the URL.</p>
+                <p><strong>Example:</strong> https://example.org/#map={zoom}/{lat}/{lon}</p>
+            </div>
         </div>
+        <div id="changeset-placeholder" style="display: none;">
+            <input type="text" id="tool-url" placeholder="URL with {changesetId} placeholder">
+            <div class="instructions">
+                <p><strong>URL Format:</strong> Use {changesetId} as a placeholder in the URL.</p>
+                <p><strong>Example:</strong> https://example.org/changeset/{changesetId}</p>
+            </div>
+        </div>
+        <button id="add-tool-btn">Add Tool</button>
     </div>
 
     <button id="save-btn">Save Settings</button>
@@ -107,6 +135,23 @@
     <script src="settings.js"></script>
     <script>
         window.name = 'osm_tools_settings';
+        
+        // Toggle placeholder based on tool type selection
+        document.addEventListener('DOMContentLoaded', () => {
+            const toolTypeSelect = document.getElementById('tool-type');
+            const coordinatePlaceholder = document.getElementById('coordinate-placeholder');
+            const changesetPlaceholder = document.getElementById('changeset-placeholder');
+            
+            toolTypeSelect.addEventListener('change', () => {
+                if (toolTypeSelect.value === 'coordinate') {
+                    coordinatePlaceholder.style.display = 'block';
+                    changesetPlaceholder.style.display = 'none';
+                } else {
+                    coordinatePlaceholder.style.display = 'none';
+                    changesetPlaceholder.style.display = 'block';
+                }
+            });
+        });
     </script>
 </body>
 

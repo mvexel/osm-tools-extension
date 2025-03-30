@@ -14,43 +14,61 @@
         .tool-list {
             list-style: none;
             padding: 0;
-            margin: 10px;
+            margin: 5px;
         }
 
         .tool-item {
-            margin: 8px 0;
+            margin: 4px 0;
+            border-radius: 3px;
+            transition: background-color 0.2s ease;
+        }
+
+        .tool-item:hover {
+            background-color: #f5f5f5;
         }
 
         a {
             color: #1a73e8;
             text-decoration: none;
             display: block;
-            padding: 4px 0;
+            padding: 5px;
+            border-radius: 3px;
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         button {
-            font-size: 14px;
+            font-size: 13px;
             padding: 4px 8px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        button:hover {
+            background-color: #1557b0;
         }
 
         .settings-container {
             text-align: center;
-            margin: 8px;
+            margin: 5px;
         }
     </style>
 </head>
 
 <body>
-    <div id="content">Detecting coordinates...</div>
+    <div id="content" style="padding: 5px;">Detecting coordinates...</div>
     <div class="settings-container">
         <button id="settings-btn">⚙️ Settings</button>
     </div>
     <script src="defaults.js"></script>
     <script src="popup.js"></script>
+    <script src="reset-storage.js"></script>
 </body>
 
 </html>
