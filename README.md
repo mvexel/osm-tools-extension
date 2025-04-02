@@ -1,9 +1,10 @@
 # OpenStreetMap Tools Extension
 
-This Chrome extension give you easy access to OSM tools based on the OSM map extent currently shown in in your active web browser tab. For example, if you are currently looking at [the OSM map around Manila](https://www.openstreetmap.org/#map=12/14.6208/121.0470), you can click on the extension icon and click on `New uMap here` to create a new custom map for this exact map extent using the uMap application.
+This Chrome / Firefox extension give you easy access to OSM tools based on the OSM map extent currently shown in in your active web browser tab. For example, if you are currently looking at [the OSM map around Manila](https://www.openstreetmap.org/#map=12/14.6208/121.0470), you can click on the extension icon and click on `New uMap here` to create a new custom map for this exact map extent using the uMap application.
 
 ![extension screenshot](https://images.rtijn.org/2025/chrome-extension-menu.png)
 
+*There are other browser extensions out there that have more functionality, notably [OpenSwitchMaps](https://github.com/tankaru/OpenSwitchMaps). I made this to be simple and single-purpose, with source code that is easy to inspect.*
 
 ## To install
 
