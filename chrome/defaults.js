@@ -59,6 +59,11 @@ const defaultTools = {
         enabled: true,
         type: 'coordinate'
     },
+    'Overture Maps Explorer': {
+        url: 'https://explore.overturemaps.org/#{zoom}/{lat}/{lon}',
+        enabled: true,
+        type: 'coordinate'
+    },
     'OpenWhateverMap': {
         url: 'https://openwhatevermap.xyz/#{zoom}/{lat}/{lon}',
         enabled: true,
