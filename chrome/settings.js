@@ -239,6 +239,23 @@ document.addEventListener('DOMContentLoaded', () => {
         saveSettings(true);
     });
 
+    // Toggle placeholder based on tool type selection
+    const toolTypeSelect = document.getElementById('tool-type');
+    const coordinatePlaceholder = document.getElementById('coordinate-placeholder');
+    const changesetPlaceholder = document.getElementById('changeset-placeholder');
+    
+    toolTypeSelect.addEventListener('change', () => {
+        if (toolTypeSelect.value === 'coordinate') {
+            coordinatePlaceholder.style.display = 'block';
+            changesetPlaceholder.style.display = 'none';
+        } else {
+            coordinatePlaceholder.style.display = 'none';
+            changesetPlaceholder.style.display = 'block';
+        }
+    });
+
     // Initialize
     loadSettings();
 });
+
+window.name = 'osm_tools_settings';

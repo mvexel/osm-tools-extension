@@ -133,26 +133,6 @@
 
     <script src="defaults.js"></script>
     <script src="settings.js"></script>
-    <script>
-        window.name = 'osm_tools_settings';
-        
-        // Toggle placeholder based on tool type selection
-        document.addEventListener('DOMContentLoaded', () => {
-            const toolTypeSelect = document.getElementById('tool-type');
-            const coordinatePlaceholder = document.getElementById('coordinate-placeholder');
-            const changesetPlaceholder = document.getElementById('changeset-placeholder');
-            
-            toolTypeSelect.addEventListener('change', () => {
-                if (toolTypeSelect.value === 'coordinate') {
-                    coordinatePlaceholder.style.display = 'block';
-                    changesetPlaceholder.style.display = 'none';
-                } else {
-                    coordinatePlaceholder.style.display = 'none';
-                    changesetPlaceholder.style.display = 'block';
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

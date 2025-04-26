@@ -66,11 +66,21 @@ async function generateCoordinateLinks(lat, lon, zoom) {
                         .replace('{zoom}', zoom)
                         .replace('{lat}', lat)
                         .replace('{lon}', lon);
-                    return `<li class="tool-item"><a href="${formattedUrl}" target="_blank" class="tool-link">${name}</a></li>`;
-                })
-                .join('');
+                    const li = document.createElement('li');
+                    li.className = 'tool-item';
+                    const a = document.createElement('a');
+                    a.href = formattedUrl;
+                    a.target = '_blank';
+                    a.className = 'tool-link';
+                    a.textContent = name;
+                    li.appendChild(a);
+                    return li;
+                });
 
-            resolve(`<ul class="tool-list">${list}</ul>`);
+            const ul = document.createElement('ul');
+            ul.className = 'tool-list';
+            listItems.forEach(li => ul.appendChild(li));
+            resolve(ul);
         });
     });
 }
@@ -94,11 +104,21 @@ async function generateChangesetLinks(changesetId) {
                 .map(name => {
                     const url = typeof tools[name] === 'object' ? tools[name].url : tools[name];
                     const formattedUrl = url.replace('{changesetId}', changesetId);
-                    return `<li class="tool-item"><a href="${formattedUrl}" target="_blank" class="tool-link">${name}</a></li>`;
-                })
-                .join('');
+                    const li = document.createElement('li');
+                    li.className = 'tool-item';
+                    const a = document.createElement('a');
+                    a.href = formattedUrl;
+                    a.target = '_blank';
+                    a.className = 'tool-link';
+                    a.textContent = name;
+                    li.appendChild(a);
+                    return li;
+                });
 
-            resolve(`<ul class="tool-list">${list}</ul>`);
+            const ul = document.createElement('ul');
+            ul.className = 'tool-list';
+            listItems.forEach(li => ul.appendChild(li));
+            resolve(ul);
         });
     });
 }
@@ -115,34 +135,42 @@ function updatePopup() {
                 const [_, zoom, lat, lon] = coordMatch;
                 generateCoordinateLinks(lat, lon, zoom)
                     .then(html => {
-                        document.getElementById('content').innerHTML = 
-                            '<h3>Map Tools</h3>' + html;
+                        const content = document.getElementById('content');
+                        content.innerHTML = '';
+                        const h3 = document.createElement('h3');
+                        h3.textContent = 'Map Tools';
+                        content.appendChild(h3);
+                        content.appendChild(html);
                     })
                     .catch(error => {
                         console.error('Error generating coordinate links:', error);
-                        document.getElementById('content').innerHTML = 
-                            "Error generating tool links";
+                        const content = document.getElementById('content');
+                        content.textContent = 'Error generating tool links';
                     });
             } else if (changesetMatch) {
                 const changesetId = changesetMatch[1];
                 generateChangesetLinks(changesetId)
                     .then(html => {
-                        document.getElementById('content').innerHTML = 
-                            '<h3>Changeset Tools</h3>' + html;
+                        const content = document.getElementById('content');
+                        content.innerHTML = '';
+                        const h3 = document.createElement('h3');
+                        h3.textContent = 'Changeset Tools';
+                        content.appendChild(h3);
+                        content.appendChild(html);
                     })
                     .catch(error => {
                         console.error('Error generating changeset links:', error);
-                        document.getElementById('content').innerHTML = 
-                            "Error generating changeset tool links";
+                        const content = document.getElementById('content');
+                        content.textContent = 'Error generating changeset tool links';
                     });
             } else {
-                document.getElementById('content').innerHTML = 
-                    "No OSM coordinates or changeset detected in current URL";
+                document.getElementById('content').textContent = 
+                    'No OSM coordinates or changeset detected in current URL';
             }
         } catch (error) {
             console.error('Error processing tab:', error);
-            document.getElementById('content').innerHTML = 
-                "Error processing current tab";
+            document.getElementById('content').textContent = 
+                'Error processing current tab';
         }
     });
 }
