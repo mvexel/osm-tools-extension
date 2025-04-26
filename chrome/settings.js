@@ -44,13 +44,21 @@ function renderTools(tools, order) {
         
         const toolType = tool && typeof tool === 'object' && tool.type ? tool.type : 'coordinate';
 
-        toolDiv.innerHTML = `
-            <label>
-                <input type="checkbox" ${isEnabled ? 'checked' : ''}>
-                ${name}
-            </label>
-            <span class="tool-type">${toolType}</span>
-        `;
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        if (isEnabled) {
+            input.checked = true;
+        }
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(name));
+        
+        const typeSpan = document.createElement('span');
+        typeSpan.className = 'tool-type';
+        typeSpan.textContent = toolType;
+        
+        toolDiv.appendChild(label);
+        toolDiv.appendChild(typeSpan);
 
         // Add event listeners
         setupToolItemEvents(toolDiv, name, tools, order);
