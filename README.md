@@ -1,5 +1,11 @@
 # OpenStreetMap Tools Extension
 
+## We are on Sourcehut
+If you are reading this notice on Github, please point your bookmarks and git remotes at the `osm-tools-extension` repo [on Sourcehut](https://git.sr.ht/~mvexel/osm-tools-extension) instead. This project will not be updated on Github.
+
+---
+
+
 This Chrome / Firefox extension give you easy access to OSM tools based on the OSM map extent currently shown in in your active web browser tab. For example, if you are currently looking at [the OSM map around Manila](https://www.openstreetmap.org/#map=12/14.6208/121.0470), you can click on the extension icon and click on `New uMap here` to create a new custom map for this exact map extent using the uMap application.
 
 ![extension screenshot](https://images.rtijn.org/2025/chrome-extension-menu.png)
@@ -9,7 +15,7 @@ This Chrome / Firefox extension give you easy access to OSM tools based on the O
 ## To install
 
 ### Chrome
-Right now, this is not an 'official' Chrome extension, you cannot download it from the Chrome Web Store. 
+Right now, this is not an 'official' Chrome extension, you cannot download it from the Chrome Web Store.
 
 #### Temporary Install
 To install, clone this repo somewhere, open the Chrome extensions settings (`Menu -> Extensions -> Manage Extensions` or type `chrome://extensions/` in your browser), enable Developer Mode, select `Load Unpacked` and select the `chrome/` directory in the cloned repo.
